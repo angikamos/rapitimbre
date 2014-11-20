@@ -1,0 +1,256 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>Rapitimbre</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+    <script src='https://cdn.firebase.com/js/client/1.1.1/firebase.js'></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+.ui-page,
+body {
+	background-image: url(fondos.jpg);
+}
+.ui-page-theme-a {
+	color: #FFF;
+	text-shadow: 0 0 0 transparent;
+}
+</style>
+    <script>
+      var myDataRef = new Firebase('https://rapitimbre.firebaseio.com/');
+	  $(function(){
+		  
+		  $('#aceptarSalsa').click(function (e) {
+			  var productos = $('#prodSalsa').val();
+			  var pago = $('#pagoSalsa').val();
+			 myDataRef.set('Pedido Salsamentaria ' + productos + ' tipo de pago ' + pago);
+		  });
+		  
+		  $('#aceptarsuper').click(function (e) {
+			  var productos = $('#prodsuper').val();
+			  var pago = $('#pagosuper').val();
+			 myDataRef.set('Pedido Supermercado ' + productos + ' tipo de pago ' + pago);
+		  });
+		  
+	  });
+	  
+	  
+    </script>
+</head>
+
+<body>
+
+<div data-role="page" id="index">
+        <center> <font size="36"> <h1>RAPITIMBRE</h1> </font> <center>  
+	<div role="main" class="ui-content"> 	
+        
+<div id="custom-border-radius">
+    <center> <img src="logog.png" width="350" height="350"> </center>  
+</div>
+<a href="#tiendas" class="ui-btn ui-btn-inline">EMPEZAR</a>
+
+    </div>
+	
+</div>
+
+<div data-role="page" id="tiendas">
+	
+    	
+    <div data-role="header">
+    <a href="#index" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l" >Atrás</a>
+    <center> <img src="logog.png" width="72" height="72"> </center>
+
+    
+</div>
+   <center> <font size=4> <h1>Elige una tienda</h1> </font> <center> 
+   <a href="#pedidopanaderia" class="ui-btn ui-btn-inline"> <img src="panaderia.png"> </a>
+ <a href="#pedidosalsamentaria" class="ui-btn ui-btn-inline">
+ <img src="salsa.png"></a>
+<p>
+<a href="#pedidosupermercado" class="ui-btn ui-btn-inline">
+<img src="super.png"></a></a>
+<a href="#pedidomiscelanea" class="ui-btn ui-btn-inline">
+<img src="miscelanea.png"></a></a></a>
+</p>
+</div><!-- /navbar -->
+
+    
+   
+
+
+<div data-role="page" id="pedidosalsamentaria">
+	 <div data-role="header">
+   
+    <a href="#tiendas" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l" >Atrás</a>
+    <center> <img src="logog.png" width="72" height="72"> </center>
+	
+    </div>
+	  <center> <font size=4> <h1>Escribe tus productos</h1> </font> <center> 
+      <label for="textarea">Salsamentaria</label>
+<textarea cols="40" rows="8" id="prodSalsa" name="textarea"></textarea>
+<a href="#pedido" class="ui-btn ui-btn-inline">Pago Con</a>
+<textarea cols="40" rows="8" id="pagoSalsa" name="textarea"></textarea>
+<a href="#final" id="aceptarSalsa" class="ui-btn ui-btn-inline">Aceptar</a>
+<a href="#pedido" class="ui-btn ui-btn-inline">Comprar</a>
+<p>
+<a href="#ofertasalsa" class="ui-btn ui-btn-inline">OFERTAS</a>
+</p>
+
+    
+    
+</div>
+
+<div data-role="page" id="ofertasalsa">
+	<div data-role="header">
+   
+    <a href="#pedidosalsamentaria" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l" >Atrás</a>
+    <center> <img src="logog.png" width="72" height="72"> </center>
+    </div>
+<center> <font size=4> <h1>Ofertas salsamentaria</h1> </font> <center>
+<ol data-role="listview">
+    <li>10 huevos por $2000</li>
+    <li>Sobre de mayonesa $600</li>
+    <li>Alfajor monterey $1400</li>
+    <li>papas Supericas $600</li>
+    
+</ol>
+    </div>
+
+<div data-role="page" id="pedidopanaderia">
+	 <div data-role="header">
+   
+    <a href="#tiendas" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l" >Atrás</a>
+    <center> <img src="logog.png" width="72" height="72"> </center>
+	
+    </div>
+	  <center> <font size=4> <h1>Escribe tus productos</h1> </font> <center> 
+      <label for="textarea">Panadería</label>
+<textarea cols="40" rows="8" id="prodpan" name="textarea" ></textarea>
+<a href="#pedido" class="ui-btn ui-btn-inline">Pago Con</a>
+<textarea cols="40" rows="8" id="pagopan" name="textarea" ></textarea>
+<a href="#final" id="aceptarpan" class="ui-btn ui-btn-inline">Aceptar</a>
+<a href="#pedido" class="ui-btn ui-btn-inline">Comprar</a>
+<p>
+<a href="#ofertaspana" class="ui-btn ui-btn-inline">OFERTAS</a>
+</p>
+
+    
+    
+</div>
+
+<div data-role="page" id="ofertaspana">
+	<div data-role="header">
+   
+    <a href="#pedidopanaderia" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l" >Atrás</a>
+    <center> <img src="logog.png" width="72" height="72"> </center>
+    </div>
+<center> <font size=4> <h1>Ofertas panadería</h1> </font> <center>
+<ol data-role="listview">
+    <li>Quesadillas por $500</li>
+    <li>Pan hojaldrado $100</li>
+    <li>Combo 1 bolsa de leche 1 litro mas $1000 de pan= $2000</li>
+    <li>Café por $500</li>
+    
+</ol>
+    </div>
+
+
+<div data-role="page" id="pedidosupermercado">
+	 <div data-role="header">
+   
+    <a href="#tiendas" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l" >Atrás</a>
+    <center> <img src="logog.png" width="72" height="72"> </center>
+	
+    </div>
+	  <center> <font size=4> <h1>Escribe tus productos</h1> </font> <center> 
+      <label for="textarea">Supermercado</label>
+<textarea cols="40" rows="8" id="prodsuper" name="textarea" ></textarea>
+<a href="#pedido" class="ui-btn ui-btn-inline">Pago Con</a>
+<textarea cols="40" rows="8" id="pagosuper" name="textarea" ></textarea>
+<a href="#final" id="aceptarsuper" class="ui-btn ui-btn-inline">Aceptar</a>
+<a href="#pedido" class="ui-btn ui-btn-inline">Comprar</a>
+<p>
+<a href="#ofertasmercado" class="ui-btn ui-btn-inline">OFERTAS</a>
+</p>
+
+    
+    
+</div>
+
+<div data-role="page" id="ofertasmercado">
+	<div data-role="header">
+   
+    <a href="#pedidosupermercado" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l" >Atrás</a>
+    <center> <img src="logog.png" width="72" height="72"> </center>
+    </div>
+<center> <font size=4> <h1>Ofertas supermercado</h1> </font> <center>
+<ol data-role="listview">
+    <li>2x1 en papel higiénico triple hoja $2000</li>
+    <li>litro de leche deslactosada $2900</li>
+    <li>Yogurt de fresa 1 litro $2500</li>
+    <li>Atún 2 latas por $4500</li>
+    
+</ol>
+    </div>
+
+
+<div data-role="page" id="pedidomiscelanea">
+	 <div data-role="header">
+   
+    <a href="#tiendas" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l" >Atrás</a>
+    <center> <img src="logog.png" width="72" height="72"> </center>
+	
+    </div>
+	  <center> <font size=4> <h1>Escribe tus productos</h1> </font> <center> 
+      <label for="textarea">Miscelanea</label>
+<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+<a href="#pedido" class="ui-btn ui-btn-inline">Pago Con</a>
+<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+<a href="#final" class="ui-btn ui-btn-inline">Aceptar</a>
+<a href="#pedido" class="ui-btn ui-btn-inline">Comprar</a>
+<p>
+<a href="#ofertasm" class="ui-btn ui-btn-inline">OFERTAS</a>
+</p>
+   
+    
+</div>
+
+<div data-role="page" id="ofertasm">
+	<div data-role="header">
+   
+    <a href="#pedidomiscelanea" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l" >Atrás</a>
+    <center> <img src="logog.png" width="72" height="72"> </center>
+    </div>
+<center> <font size=4> <h1>Ofertas miscelanea</h1> </font> <center>
+<ol data-role="listview">
+    <li>8 lápices Mirado 2 por $2000</li>
+    <li>Paquete por 10 cartulinas tamaño octavo $1000</li>
+    <li>Sobre cartas Minecraft $100</li>
+    <li>Esferos Bic 2x1 $800</li>
+    
+</ol>
+    </div>
+	
+</div>
+
+<div data-role="page" id="final">
+	<div data-role="footer">
+  
+</div>
+        <center> <font size=6> <h1>GRACIAS POR SU COMPRA</h1> </font> <center>  
+	<div role="main" class="ui-content"> 	
+        
+<div id="custom-border-radius">
+    <center> <img src="logog.png" width="512" height="512"> </center>  
+</div>
+<a href="#index" class="ui-btn ui-btn-inline">VOLVER A INICIO</a>
+
+
+
+
+
+</body>
+</html>
